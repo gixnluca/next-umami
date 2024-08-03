@@ -1,0 +1,56 @@
+{
+  "name": "next-umami",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "build:types": "tsup --dts",
+    "typecheck": "tsc --noEmit",
+    "lint": "prettier --write \"**/*.{ts,tsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gixnluca/next-umami.git"
+  },
+  "keywords": [
+    "umami",
+    "nextjs",
+    "analytics"
+  ],
+  "author": "Gianluca De Marchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gixnluca/next-umami/issues"
+  },
+  "homepage": "https://github.com/gixnluca/next-umami#readme",
+  "peerDependencies": {
+    "next": "^11.1.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.14",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "next": "^14.2.5",
+    "prettier": "^3.3.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-node": "^10.9.1",
+    "tsup": "^8.2.4",
+    "typescript": "^5.2.0"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
