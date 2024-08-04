@@ -1,5 +1,5 @@
 import Script, { ScriptProps } from 'next/script'
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 // https://umami.is/docs/tracker-configuration
 interface Props extends Pick<ScriptProps, 'onLoad' | 'onReady' | 'onError'> {
@@ -23,28 +23,33 @@ interface Props extends Pick<ScriptProps, 'onLoad' | 'onReady' | 'onError'> {
    * If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment.
    */
   domains?: string | string[]
+  children?: ReactNode
 }
 
 export default function UmamiProvider({
   src = 'https://cloud.umami.is/script.js',
   websiteId,
   autoTrack = true,
+  hostUrl,
+  domains,
+  children,
   ...props
 }: Props) {
   return (
-    <Script
-      src={src}
-      data-website-id={websiteId}
-      data-auto-track={autoTrack}
-      {...(props.hostUrl && { 'data-host-url': props.hostUrl })}
-      {...(props.domains && {
-        'data-domains': Array.isArray(props.domains)
-          ? props.domains.join(',')
-          : props.domains,
-      })}
-      /* Strategy recommended by Next.js for analytics https://nextjs.org/docs/app/api-reference/components/script#afterinteractive */
-      strategy="afterInteractive"
-      {...props}
-    />
+    <>
+      <Script
+        src={src}
+        data-website-id={websiteId}
+        data-auto-track={autoTrack}
+        {...(hostUrl && { 'data-host-url': hostUrl })}
+        {...(domains && {
+          'data-domains': Array.isArray(domains) ? domains.join(',') : domains,
+        })}
+        /* Strategy recommended by Next.js for analytics https://nextjs.org/docs/app/api-reference/components/script#afterinteractive */
+        strategy="afterInteractive"
+        {...props}
+      />
+      {children}
+    </>
   )
 }
