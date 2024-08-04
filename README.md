@@ -63,3 +63,33 @@ export default function RootLayout({ children }) {
 | `onLoad?`    | Execute code after Umami has loaded.                                                                                                                                                                                                                                                      |
 | `onReady?`   | Execute code after Umami's load event when it first loads and then after every subsequent component re-mount.                                                                                                                                                                             |
 | `onError?`   | Handle errors if Umami fails to load.                                                                                                                                                                                                                                                     |
+
+
+### Send Custom Events
+
+Umami supports custom events as described at https://umami.is/docs/tracker-functions. This package provides the `useUmami` hook to safely access the `umami` function like this:
+```jsx
+import { useUmami } from 'next-umami'
+
+export default function UmamiButtons() {
+  const umami = useUmami()
+
+  return (
+    <>
+      {/* Basic Event */}
+      <button onClick={() => umami.event('Basic Event')}>Submit</button>
+      
+      {/* Custom Event */}
+      <button
+        onClick={() =>
+          umami.event('Custom Event', {
+            userAgent: window.navigator.userAgent,
+          })
+        }
+      >
+        Submit with attributes
+      </button>
+    </>
+  )
+}
+```
