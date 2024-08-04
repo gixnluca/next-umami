@@ -49,7 +49,6 @@ export default function useUmami() {
         }
         return fullData
       })
-      console.log(fullData)
       return fullData
     },
     [isClient]
