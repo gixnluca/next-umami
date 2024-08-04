@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <UmamiProvider websiteId={process.env.UMAMI_WEBSITE_ID} />
+        <UmamiProvider websiteId={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID} />
       </head>
       <body>{children}</body>
     </html>
