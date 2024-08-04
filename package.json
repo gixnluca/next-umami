@@ -20,7 +20,7 @@
     "url": "https://github.com/gixnluca/next-umami.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@gixnluca:registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "umami",
