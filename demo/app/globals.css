@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-    html, body {
-        overflow: hidden;
-    }
-    
     a {
         @apply underline
     }

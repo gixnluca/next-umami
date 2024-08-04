@@ -13,7 +13,7 @@ export default function Home() {
   const [customEventData, setCustomEventData] = useState({})
 
   return (
-    <main className="flex min-h-screen max-w-2xl mx-auto flex-col p-5 gap-10 items-center justify-center">
+    <main className="flex min-h-screen max-w-2xl mx-auto flex-col p-10 md:px-0 gap-10 items-center justify-center">
       <div className="flex flex-col md:flex-row items-center gap-10">
         <Image
           src="/umami.svg"
@@ -54,6 +54,15 @@ export default function Home() {
       </div>
       <div className="space-y-5 w-full">
         <div className="border space-y-2.5 w-full rounded-lg p-2.5">
+          <code className="select-all w-full inline-flex bg-white text-sm border text-black rounded-md p-2.5">
+            <span>
+              umami.<span className="text-brand">event</span>(
+              <span className="text-green-500">'Basic Event'</span>)
+            </span>
+          </code>
+          <pre className="border text-sm overflow-auto min-h-10 p-1 text-black rounded-md">
+            {JSON.stringify(basicEventData, null, 2)}
+          </pre>
           <Button
             onClick={() => {
               const event = umami.event('Basic Event')
@@ -62,11 +71,23 @@ export default function Home() {
           >
             Send Basic Event
           </Button>
-          <pre className="border overflow-auto min-h-10 text-sm p-1 text-black rounded-md">
-            {JSON.stringify(basicEventData, null, 2)}
-          </pre>
         </div>
         <div className="border space-y-2.5 w-full rounded-lg p-2.5">
+          <code className="select-all w-full inline-flex bg-white text-xs border text-black rounded-md p-2.5">
+            <span>
+              umami.<span className="text-brand">event</span>(
+              <span className="text-green-500">'Custom Event'</span>,{' { '}
+              <span className="text-sky-500">userAgent</span>:{' '}
+              <span className="text-sky-500">
+                <span className="text-amber-400 italic">window</span>
+                .navigator.userAgent
+              </span>
+              {' }) '}
+            </span>
+          </code>
+          <pre className="border overflow-auto min-h-10 text-sm p-1 text-black rounded-md">
+            {JSON.stringify(customEventData, null, 2)}
+          </pre>
           <Button
             onClick={() => {
               const event = umami.event('Custom Event', {
@@ -77,9 +98,6 @@ export default function Home() {
           >
             Send Custom Event
           </Button>
-          <pre className="border overflow-auto min-h-10 text-sm p-1 text-black rounded-md">
-            {JSON.stringify(customEventData, null, 2)}
-          </pre>
         </div>
       </div>
     </main>

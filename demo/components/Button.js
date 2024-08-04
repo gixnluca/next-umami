@@ -7,10 +7,9 @@ export default function Button({ variant = 'primary', ...props }) {
       className={clsx(
         {
           'bg-black text-white': variant === 'primary',
-          'bg-white text-white ': variant === 'secondary',
           'bg-brand text-white ': variant === 'brand',
         },
-        'flex items-center font-medium justify-center rounded-md py-2 px-3 w-full'
+        'flex items-center font-medium justify-center text-sm rounded-md px-3 w-full py-1.5'
       )}
       {...props}
     />
