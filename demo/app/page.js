@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useUmami } from '../../dist'
+import { useUmami } from 'next-umami'
 import Button from '@/components/Button'
 import Image from 'next/image'
 

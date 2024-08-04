@@ -1,5 +1,5 @@
 import './globals.css'
-import UmamiProvider from '../../dist'
+import UmamiProvider from 'next-umami'
 
 export const metadata = {
   title: 'next-umami',
