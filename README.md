@@ -77,7 +77,7 @@ By default, everything is automatically collected, but you can disable this usin
 
 ### Pageview
 
-Access the `umami.pageView` function like this:
+Default properties are automatically sent. If you wish to override any property, use the `umami.pageView` function like this:
 
 ```jsx
 import { useUmami } from 'next-umami'
@@ -89,12 +89,13 @@ export default function Page() {
   useEffect(() => {
     umami.pageView()
   }, [])
+  
+  // OR
 
   // Custom Pageview
   useEffect(() => {
-    // Override properies
+    // Override existing properies
     umami.pageView({
-      title: 'Custom Pageview',
       url: '/custom-pageview',
     })
   }, [])
