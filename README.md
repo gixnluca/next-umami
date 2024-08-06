@@ -86,19 +86,14 @@ export default function Page() {
   const umami = useUmami()
 
   // Default Pageview
-  useEffect(() => {
-    umami.pageView()
-  }, [])
+  umami.pageView()
   
   // OR
 
   // Custom Pageview
-  useEffect(() => {
-    // Override existing properies
-    umami.pageView({
-      url: '/custom-pageview',
-    })
-  }, [])
+  umami.pageView({
+    url: '/custom-pageview',
+  })
 
   return <h1>My Page</h1>
 }
