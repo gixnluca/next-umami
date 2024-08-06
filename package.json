@@ -1,6 +1,8 @@
 {
   "name": "next-umami",
+  "author": "Gianluca De Marchi - hi@gixnluca.dev",
   "version": "0.0.3",
+  "license": "MIT",
   "files": [
     "dist"
   ],
@@ -19,22 +21,15 @@
     "type": "git",
     "url": "https://github.com/gixnluca/next-umami.git"
   },
+  "homepage": "https://github.com/gixnluca/next-umami#readme",
+  "bugs": {
+    "url": "https://github.com/gixnluca/next-umami/issues"
+  },
   "keywords": [
     "umami",
     "nextjs",
     "analytics"
   ],
-  "author": "Gianluca De Marchi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gixnluca/next-umami/issues"
-  },
-  "homepage": "https://github.com/gixnluca/next-umami#readme",
-  "peerDependencies": {
-    "next": "^11.1.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
   "devDependencies": {
     "@types/node": "^20.14.14",
     "@types/react": "^18.0.37",
