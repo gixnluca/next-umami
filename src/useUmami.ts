@@ -30,13 +30,13 @@ export default function useUmami() {
     setIsClient(true) // this will be set to true only in the client
   }, [])
 
+  const isUmamiAvailable = useCallback(() => {
+    return isClient && typeof (window as any).umami !== 'undefined'
+  }, [isClient])
+
   const pageView = useCallback(
     (data?: Partial<PageView>) => {
-      if (!isClient) {
-        return // early return if not client
-      }
-
-      if (typeof (window as any).umami === 'undefined') {
+      if (!isUmamiAvailable()) {
         console.warn('UmamiProvider not found')
         return
       }
@@ -55,9 +55,11 @@ export default function useUmami() {
   )
 
   const event = useCallback((name: EventName, data?: EventData) => {
-    if (!(window as any).umami) {
-      throw new Error('UmamiProvider not found')
+    if (!isUmamiAvailable()) {
+      console.warn('UmamiProvider not found')
+      return
     }
+
     ;(window as any).umami?.track(name, { ...(data && { ...data }) })
     return { name, data: { ...(data && { ...data }) } }
   }, [])
