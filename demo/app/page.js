@@ -13,9 +13,7 @@ export default function Home() {
   const [customEventData, setCustomEventData] = useState({})
   const [customPageviewData, setCustomPageviewData] = useState({})
 
-  useEffect(() => {
-    umami.pageView()
-  }, [])
+  umami.pageView()
 
   return (
     <main className="flex min-h-screen max-w-2xl mx-auto flex-col p-10 md:px-0 gap-10 items-center justify-center">
